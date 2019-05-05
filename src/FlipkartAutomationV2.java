@@ -25,7 +25,7 @@ public class FlipkartAutomationV2 {
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void testTermination() throws Exception {
 		try {
 			driver.quit();
 			Log.info("WebDriver Wipe Completed");
@@ -35,7 +35,7 @@ public class FlipkartAutomationV2 {
 	}
 
 	@Test
-	public void signinCheck() throws Exception {
+	public void testProcess() throws Exception {
 		try {
 			Log.info("Test Started");
 			System.out.println("Element is Available? "+WebHandle.isElementAvailable(By.xpath("(//*/button/span[contains(text(),'Login')])")));
