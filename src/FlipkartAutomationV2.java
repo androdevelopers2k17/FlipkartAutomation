@@ -1,5 +1,4 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import ToolsLib.Log;
@@ -15,11 +14,11 @@ public class FlipkartAutomationV2 {
 	@Before
 	public void setUp() throws Exception {
 		Log.startTestCase("Flipkart Automation Testing Started");
-		String sBrowser="Chrome";
-		String sBaseURL="https://www.flipkart.com/";
-		driver = WebHandle.launchBrowser(sBrowser,sBaseURL);
+		String sBrowser = "Chrome";
+		String sBaseURL = "https://www.flipkart.com/";
+		driver = WebHandle.launchBrowser(sBrowser, sBaseURL);
 		if (driver != null) {
-			Log.info("Driver Loaded With "+sBaseURL);
+			Log.info("Driver Loaded With " + sBaseURL);
 		} else
 			Log.error("Driver Not Yet Started!");
 	}
@@ -31,6 +30,7 @@ public class FlipkartAutomationV2 {
 			Log.info("WebDriver Wipe Completed");
 			Log.endTestCase("Flipkart Automation Testing Ended");
 		} catch (Exception e) {
+			Log.error("Exception Occur : " + e.getMessage().toString());
 		}
 	}
 
@@ -38,11 +38,11 @@ public class FlipkartAutomationV2 {
 	public void testProcess() throws Exception {
 		try {
 			Log.info("Test Started");
-			System.out.println("Element is Available? "+WebHandle.isElementAvailable(By.xpath("(//*/button/span[contains(text(),'Login')])")));
+			System.out.println("Element is Available? "
+					+ WebHandle.isElementAvailable(By.xpath("(//*/button/span[contains(text(),'Login')])")));
 		} catch (Exception e) {
-			Log.error("Exception Occur : "+e.getMessage().toString());
+			Log.error("Exception Occur : " + e.getMessage().toString());
 		}
 	}
-
 
 }
